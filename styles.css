@@ -1,0 +1,250 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    overflow: hidden;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagenes/principal.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+h1#welcome-text {
+    font-size: 2.5em;
+    animation: disco-colors 2s infinite alternate;
+    text-align: center;
+    margin-bottom: 100px;
+    z-index: 1;
+}
+
+/* Animación de colores neón */
+@keyframes disco-colors {
+    0% { color: #ff0000; }
+    20% { color: #ff8000; }
+    40% { color: #ffff00; }
+    60% { color: #80ff00; }
+    80% { color: #00ff80; }
+    100% { color: #0080ff; }
+}
+
+/* Botones de categorías */
+.categories {
+    position: absolute;
+    bottom: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.category-button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 60px 80px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.category-button:hover {
+    background-color: darkpurple;
+    transform: scale(1.1);
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 100px);
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    width: 1080px;
+    height: 1920px;
+    margin: 20px 0;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.item p {
+    color: blue;
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.back-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: darkred;
+}
+
+/* Media queries para dispositivos móviles */
+
+/* Para pantallas pequeñas como teléfonos en modo vertical */
+@media only screen and (max-width: 768px) {
+    h1#welcome-text {
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+
+    .category-button {
+        padding: 40px 60px;
+        font-size: 1.2em;
+    }
+
+    .grid-container {
+        padding: 10px;
+    }
+
+    .item {
+        width: 90%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .item img {
+        max-width: 80%;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Para pantallas pequeñas en modo horizontal */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    h1#welcome-text {
+        font-size: 2.2em;
+        margin-bottom: 80px;
+    }
+
+    .category-button {
+        padding: 50px 70px;
+        font-size: 1.3em;
+    }
+
+    .grid-container {
+        padding: 15px;
+    }
+
+    .item {
+        width: 80%;
+        height: auto;
+    }
+
+    .item img {
+        max-width: 85%;
+    }
+
+    .back-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+/* Para pantallas más grandes como tablets o computadoras */
+@media only screen and (min-width: 1025px) {
+    h1#welcome-text {
+        font-size: 2.5em;
+        margin-bottom: 100px;
+    }
+
+    .category-button {
+        padding: 60px 80px;
+        font-size: 1.5em;
+    }
+
+    .grid-container {
+        padding: 20px;
+    }
+
+    .item {
+        width: 1080px;
+        height: 1920px;
+    }
+
+    .item img {
+        max-width: 100%;
+    }
+
+    .back-button {
+        padding: 15px 25px;
+        font-size: 1.2em;
+    }
+}
