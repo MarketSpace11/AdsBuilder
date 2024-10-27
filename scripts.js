@@ -27,5 +27,5 @@ function changeScreen(targetScreen) {
 
 // Botón de enlace externo
 document.getElementById('external-link-button').addEventListener('click', () => {
-    window.location.href = 'https://marketspace11.itch.io/adstore11';
+    window.location.href = 'https://marketspace11.itch.io/adsbuilder';
 });
