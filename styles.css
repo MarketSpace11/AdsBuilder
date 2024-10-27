@@ -74,7 +74,7 @@ h1#welcome-text {
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 5px;
-    margin: 15px 0;
+    margin: 10px 0;
     transition: background-color 0.3s, transform 0.3s;
 }
 
