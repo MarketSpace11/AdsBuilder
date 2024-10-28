@@ -58,7 +58,7 @@ h1#welcome-text {
 /* Botones de categorías */
 .categories {
     position: absolute;
-    bottom: 200px;
+    bottom: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
