@@ -133,14 +133,10 @@
     </div>
     <!--copyright section end -->
 
-    <!-- Javascript files -->
-    <!-- Cargar jQuery primero (puedes elegir una sola versión) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Cargar EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.2.0/email.min.js"></script>
-    <!-- Tu script personalizado para enviar correos -->
-    <script src="sendEmail.js"></script>
-
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
     <!-- Carga de Bootstrap y otros scripts -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -160,29 +156,5 @@
             closeEffect: "none"
         });
     });
-    </script>
-
-    <!-- Script para enviar correos -->
-    <script>
-    $(document).ready(function() {
-        // Inicializa EmailJS con tu User ID
-        emailjs.init("xPw6PF0ef-Di5oFKO");
-
-        // Agrega un evento 'submit' al formulario
-        $('#contactForm').on('submit', function(event) {
-            event.preventDefault(); // Previene la recarga de la página
-
-            // Envía el formulario usando EmailJS
-            emailjs.sendForm('service_xbrsts6', 'template_eht2dzq', this)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Message sent successfully');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Error sending message');
-                });
-        });
-    });
-    </script>
 </body>
 </html>
