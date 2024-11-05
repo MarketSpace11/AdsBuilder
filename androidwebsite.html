@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADStore11</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Asegúrate de que los enlaces no tengan subrayado */
+        .item a {
+            text-decoration: none;
+            color: inherit; /* Mantiene el color del texto original si es necesario */
+        }
+
+        /* Si necesitas ajustar el color del texto dentro de los enlaces */
+        .item a p {
+            color: inherit; /* O ajusta el color según tu diseño */
+        }
+
+        /* Estilo para los botones de categoría */
+        .category-button {
+            background-color: purple; /* Color azul para los botones */
+            color: white; /* Color del texto en blanco */
+            border: none; /* Sin borde */
+            padding: 20px 30px; /* Espaciado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+        }
+
+        /* Efecto al pasar el ratón sobre los botones */
+        .category-button:hover {
+            background-color: darkred; /* Color más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <!-- Pantalla Principal -->
+    <div id="main-screen" class="screen active">
+        <div class="background" style="background-image: url('imagenes/principal.png');"></div>
+        <div class="content">
+            <h1 id="welcome-text">AdsBuilder Website Creation and Business Promotion</h1>
+            <div class="categories">               
+                <button data-target="#games-screen" class="category-button">Your Android Website</button>                                             
+                <a href="mailto:ads11ceo@gmail.com?subject=Inquiry&body=Hi, I would like more information." class="category-button">E-mail Us</a>
+                <button id="external-link-button" class="category-button">AdsBuilder App</button>
+            </div>
+        </div>
+    </div>
+    <a href="services.html">
+    <button class="back-button">Return</button>
+    </a>    
+    <!-- Pantalla de Categoría de Android -->
+    <div id="games-screen" class="screen">
+        <div class="background" style="background-image: url('imagenes/android.png');"></div>
+        <div class="content">
+            <h2>Your Android Website</h2>
+            <div class="grid-container games-grid">
+                <!-- 4 cuadros de miniaturas con enlaces -->
+                <a class="item" target="_blank">
+                    <img src="imagenes/android1.png" alt="Juego 1">
+                    <p>Mobile Application</p>
+                </a>
+                <a class="item" target="_blank">
+                    <img src="imagenes/android2.png" alt="Juego 2">
+                    <p>Website Android App</p>
+                </a>
+                <a class="item" target="_blank">
+                    <img src="imagenes/android3.png" alt="Juego 3">
+                    <p>APK + OBB</p>
+                </a>
+                <a class="item" target="_blank">
+                    <img src="imagenes/android4.png" alt="Juego 4">
+                    <p>Share Your App</p>
+                </a>
+            </div>
+            <button class="back-button" data-target="#main-screen">Return</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
