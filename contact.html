@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 </head>
 <body>
     <!--header section start -->
@@ -136,12 +135,21 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.2.0/email.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-    emailjs.init("xPw6PF0ef-Di5oFKO"); // Public Key
-    </script>    
+        emailjs.init("xPw6PF0ef-Di5oFKO"); // Public Key
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            emailjs.sendForm("service_id", "template_id", this)
+                .then(function(response) {
+                    alert("Mensaje enviado con éxito!");
+                }, function(error) {
+                    alert("Error al enviar el mensaje, intente nuevamente.");
+                });
+        });
+    </script>
+    
     <!-- Carga de Bootstrap y otros scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/plugin.js"></script>
