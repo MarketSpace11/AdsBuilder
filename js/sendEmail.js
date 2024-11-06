@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault(); // Previene la recarga de la página
 
             // Envía el formulario usando EmailJS
-            emailjs.sendForm('service_pyrjqj8', 'template_badfkxg', this) // 'template_eht2dzq' es tu Template ID
+            emailjs.sendForm('service_pyrjqj8', 'template_badfkxg', this) // 'template_badfkxg' es tu Template ID
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('Message sent successfully');
