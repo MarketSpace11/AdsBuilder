@@ -1,11 +1,10 @@
 document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+    event.preventDefault(); // Evita el envío directo
 
     const serviceID = "service_pyrjqj8";
     const templateID = "template_badfkxg";
     const publicKey = "xPw6PF0ef-Di5oFKO";
 
-    // Recopila los datos del formulario
     const templateParams = {
         user_name: document.querySelector("input[name='user_name']").value,
         user_email: document.querySelector("input[name='user_email']").value,
@@ -13,9 +12,8 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         message: document.querySelector("textarea[name='message']").value
     };
 
-    emailjs.init(publicKey); // Inicializa EmailJS con la clave pública
+    emailjs.init(publicKey); // Inicializa EmailJS con tu public key
 
-    // Enviar el correo electrónico a través de EmailJS
     emailjs.send(serviceID, templateID, templateParams)
         .then(response => {
             console.log("SUCCESS!", response.status, response.text);
