@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
             emailjs.sendForm('service_pyrjqj8', 'template_badfkxg', this) // 'template_eht2dzq' es tu Template ID
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
-                    alert('Mensaje enviado con éxito');
+                    alert('Message sent successfully');
                     form.reset(); // Opcional: resetea el formulario tras enviarlo
                 }, function(error) {
                     console.log('FAILED...', error);
-                    alert('Error al enviar el mensaje');
+                    alert('Error sending message, try again');
                 });
         });
     } else {
-        console.error("Formulario con ID 'contact-form' no encontrado");
+        console.error("Formulario con ID 'contactForm' not found");
     }
 });
