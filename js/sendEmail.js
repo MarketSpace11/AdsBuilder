@@ -4,7 +4,7 @@ emailjs.init("xPw6PF0ef-Di5oFKO"); // Este es tu User ID
 // Asegúrate de que el código se ejecute solo después de que el DOM esté listo
 document.addEventListener("DOMContentLoaded", function() {
     // Agrega el evento 'submit' al formulario
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Previene la recarga de la página
