@@ -1,22 +1,27 @@
 // Inicializa EmailJS
-emailjs.init("xPw6PF0ef-Di5oFKO");  // Aquí debes colocar tu User ID de EmailJS
+emailjs.init("xPw6PF0ef-Di5oFKO");  // Asegúrate de usar tu User ID de EmailJS
 
-// Llama a esta función cuando el formulario se envíe
-document.getElementById("subscription-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Previene que el formulario se recargue
+// Añadir evento click al botón de suscripción
+document.getElementById("subscription-form").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita que el formulario se recargue al hacer clic
 
-    // Obtén el correo del formulario
     var userEmail = document.getElementById("user-email").value;
 
-    // Configura el correo a enviar
+    // Validación de correo electrónico vacío
+    if (!userEmail) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    // Configura los parámetros para el correo
     var templateParams = {
-        email: userEmail,  // Esto va a enviar el email ingresado
+        email: userEmail,  // Envía el correo ingresado en el formulario
     };
 
-    // Enviar el correo con EmailJS
+    // Enviar correo con EmailJS
     emailjs.send("service_pyrjqj8", "template_badfkxg", templateParams)
         .then(function(response) {
-            alert("¡You have successfully subscribed!");
+            alert("You have successfully subscribed!");
             console.log("SUCCESS", response);
         }, function(error) {
             alert("There was an error subscribing, please try again.");
