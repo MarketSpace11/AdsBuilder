@@ -99,12 +99,12 @@
 <div class="footer_section layout_padding" style="background: url('images/footer-bg.png') no-repeat center center; background-size: cover; color: #ffffff;">
     <div class="container">
         <div class="footer_main">
-            <!-- Input de suscripción con botón "Subscribe Now" -->
+            <!-- Formulario de suscripción con botón "Subscribe Now" -->
             <form id="subscription-form">
-            <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Enter your email" aria-label="Recipient's email" aria-describedby="basic-addon2" required>
-                <div class="input-group-append">
-                    <button type="button" class="input-group-text" id="basic-addon2">Subscribe Now</button>
+                <div class="input-group mb-3">
+                    <input type="email" id="user-email" class="form-control" placeholder="Enter your email" aria-label="Recipient's email" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="subscribe-button">Subscribe Now</button>
                 </div>
             </div>
             
@@ -160,6 +160,7 @@
 </script>
 
 <!-- Carga de Bootstrap y otros scripts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" crossorigin="anonymous"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -182,6 +183,6 @@
 </script>
 <!-- Incluir sendEmail.js si lo necesitas -->
 <script src="js/sendEmail.js"></script>
-<script src="js/subscribe.js"></script>    
+<script src="js/subscribe.js"></script>     
 </body>
 </html>
