@@ -3,30 +3,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Verifica si EmailJS está disponible
     if (!emailjs) {
         console.error("EmailJS no está cargado. Revisa la conexión a internet o la URL de la biblioteca.");
-        alert("Error al cargar EmailJS. Intenta recargar la página.");
         return;
     }
 
     // Inicializa EmailJS con tu User ID
     try {
         emailjs.init("xPw6PF0ef-Di5oFKO");
-        console.log("EmailJS initialized successfully.");
     } catch (error) {
         console.error("Error al inicializar EmailJS:", error);
-        alert("Error al inicializar EmailJS.");
         return;
     }
 
-    // Función para enviar el formulario usando EmailJS
+    // Función para enviar el formulario usando EmailJS sin mensajes de error visibles
     async function sendEmail(serviceId, templateId, form, templateParams) {
         try {
-            const response = await emailjs.send(serviceId, templateId, templateParams);
-            console.log("Correo enviado con éxito:", response);
+            await emailjs.send(serviceId, templateId, templateParams);
             alert("Message sent successfully!");
             if (form) form.reset(); // Opcional: resetea el formulario tras enviarlo
         } catch (error) {
-            console.error("Error al enviar el mensaje:", error);
-            alert("Error sending message, please try again.");
+            // No hacemos nada en caso de error
+            console.error("Error al enviar el mensaje:", error); // Solo registro en consola
         }
     }
 
@@ -37,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             sendEmail("service_pyrjqj8", "template_badfkxg", contactForm, contactForm);
         });
-    } else {
-        console.warn("Formulario con ID 'contactForm' no encontrado en el DOM.");
     }
 
     // Configuración de envío para subscriptionForm
@@ -56,7 +50,5 @@ document.addEventListener("DOMContentLoaded", function() {
             const templateParams = { email: userEmail };
             sendEmail("service_pyrjqj8", "template_badfkxg", null, templateParams);
         });
-    } else {
-        console.warn("Formulario con ID 'subscription-form' no encontrado en el DOM.");
     }
 });
