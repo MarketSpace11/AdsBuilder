@@ -175,11 +175,13 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Inicializar emailjs con el User ID
-        if (emailjs) {
+        try {
+            // Inicializar emailjs con el User ID
             emailjs.init("xPw6PF0ef-Di5oFKO");
-        } else {
-            console.error("Error al cargar EmailJS.");
+            console.log("EmailJS initialized successfully.");
+        } catch (error) {
+            console.error("Error initializing EmailJS:", error);
+            return; // Detenemos la ejecución si no se puede inicializar emailjs
         }
 
         // Configuración del envío del formulario
@@ -189,6 +191,7 @@
                 event.preventDefault();
 
                 try {
+                    console.log("Sending email...");
                     const response = await emailjs.sendForm("service_pyrjqj8", "template_badfkxg", this);
                     console.log("SUCCESS", response);
                     alert("Message sent successfully!");
@@ -203,7 +206,6 @@
         }
     });
 </script>
-
 	 <!-- Javascript files-->
     <script src="js/sendEmail.js"></script>
     <script src="js/jquery.min.js"></script>
