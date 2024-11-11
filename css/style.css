@@ -37,7 +37,7 @@ html {
 }
 
 body {
-     color: #666666;
+     color: #1020e7;
      font-size: 14px;
      font-family: Raleway;
      line-height: 1.80857;
@@ -249,7 +249,7 @@ button {
      width: 100%;
      float: left;
      font-size: 50px;
-     color: #fdfdfe;
+     color: #5beefd;
      text-align: center;
      padding-bottom: 40px;
      font-family: Baloo Chettan;
@@ -317,7 +317,7 @@ button {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #282828;
+    color: #8516ff;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
@@ -326,8 +326,8 @@ button {
 .lorem_text{
      width: 100%;
      float: left;
-     font-size: 16px;
-     color: #282828;
+     font-size: 20px;
+     color: #ad0fd5;
      text-align: center;
      margin-left: 0px;
 }
@@ -370,7 +370,7 @@ button {
 .service_section {
     width: 100%;
     float: left;
-    background-color: #fcf8fe;
+    background-color: #e3affe;
     height: auto;
     margin-top: 90px;
     padding-bottom: 90px;
@@ -384,9 +384,9 @@ button {
     text-align: center; /* Centra el texto dentro de la tarjeta */
     margin: 20px; /* Espacio entre las tarjetas */
     padding: 20px; /* Espacio interno dentro de cada tarjeta */
-    border: 1px solid #ccc; /* Borde alrededor de la tarjeta */
+    border: 1px solid #51f6e7; /* Borde alrededor de la tarjeta */
     border-radius: 10px; /* Bordes redondeados */
-    background-color: #fff; /* Fondo blanco para cada tarjeta */
+    background-color: #6936e5; /* Fondo blanco para cada tarjeta */
 }
 
 .service-card:hover {
@@ -405,7 +405,7 @@ button {
     width: 65%;
     margin: 0 auto;
     font-size: 16px;
-    color: #282828;
+    color: #1d5ae4;
     text-align: center;
 }
 
@@ -425,7 +425,7 @@ button {
     width: 100%;
     float: left;
     font-size: 24px;
-    color: #282828;
+    color: #732ae7;
     text-transform: uppercase;
     text-align: center;
     padding-top: 40px;
@@ -459,7 +459,7 @@ button {
     float: left;
     font-size: 40px;
     text-align: center;
-    color: #282828;
+    color: #e357f4;
     font-weight: bold;
     text-transform: uppercase;
 }
