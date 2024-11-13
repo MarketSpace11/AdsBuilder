@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Función para actualizar el contador de artículos
+    // Función para actualizar el contador de artículos en el carrito
     function updateCartCount() {
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         const itemCount = cartItems.length;
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cartItems.forEach(item => {
             const itemDiv = document.createElement("div");
+            itemDiv.classList.add("cart-item");
             itemDiv.textContent = `${item.name} - $${item.price}`;
             cartContents.appendChild(itemDiv);
             totalPrice += item.price;
@@ -42,11 +43,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("total-price").textContent = `Total: $${totalPrice}`;
     }
 
-    // Ejemplo de cómo agregar un artículo al carrito desde `product.html`
-    if (document.querySelector(".add-to-cart-button")) {
-        document.querySelector(".add-to-cart-button").addEventListener("click", function () {
-            const product = { id: 1, name: "Producto Ejemplo", price: 20 };
+    // Añadir al carrito al hacer clic en cualquier botón de agregar
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const product = {
+                id: button.getAttribute("data-id"),
+                name: button.getAttribute("data-name"),
+                price: parseFloat(button.getAttribute("data-price"))
+            };
             addToCart(product);
         });
-    }
+    });
 });
