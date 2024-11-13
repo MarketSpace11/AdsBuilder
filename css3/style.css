@@ -1,0 +1,20 @@
+/* Estilo para el botón flotante del carrito */
+#cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}
+
+#item-count {
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 5px;
+    color: white;
+}
