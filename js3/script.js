@@ -6,12 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartButton = document.getElementById("cart-button");
         const itemCountElement = document.getElementById("item-count");
 
-        // Muestra el botón solo si hay artículos en el carrito
-        if (itemCount > 0) {
-            cartButton.style.display = "block";
-            itemCountElement.textContent = itemCount;
-        } else {
-            cartButton.style.display = "none";
+        // Verifica si cartButton y itemCountElement existen antes de aplicar cambios
+        if (cartButton && itemCountElement) {
+            // Muestra el botón solo si hay artículos en el carrito
+            if (itemCount > 0) {
+                cartButton.style.display = "block";
+                itemCountElement.textContent = itemCount;
+            } else {
+                cartButton.style.display = "none";
+            }
         }
     }
 
