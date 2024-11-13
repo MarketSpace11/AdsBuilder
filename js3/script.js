@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             cartItem.innerHTML = `
                 <button class="remove-item-btn" onclick="removeFromCart(${item.id})">&times;</button>
-                <img src="images/w${item.id}.jpg" alt="${item.name}">
+                <img src="images/w${item.id}.png" alt="${item.name}">
                 <div class="cart-item-details">
                     <h5>${item.name}</h5>
                     <p>Price: $${item.price}</p>
