@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartButton = document.getElementById("cart-button");
         const itemCountElement = document.getElementById("item-count");
 
-        // Verifica si cartButton y itemCountElement existen antes de aplicar cambios
         if (cartButton && itemCountElement) {
-            // Muestra el botón solo si hay artículos en el carrito
             if (itemCount > 0) {
                 cartButton.style.display = "block";
                 itemCountElement.textContent = itemCount;
@@ -18,10 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Llama a la función al cargar la página
     updateCartCount();
 
-    // Función para agregar al carrito
     function addToCart(product) {
         let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         cartItems.push(product);
@@ -29,33 +25,63 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartCount();
     }
 
-    // Lógica para mostrar contenido en `cart.html`
-    if (document.getElementById("cart-contents")) {
+    function removeFromCart(productId) {
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        cartItems = cartItems.filter(item => item.id !== productId);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        displayCartItems();
+        updateCartCount();
+    }
+
+    function displayCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items-container");
+        cartItemsContainer.innerHTML = '';
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartContents = document.getElementById("cart-contents");
         let totalPrice = 0;
 
         cartItems.forEach(item => {
-            const itemDiv = document.createElement("div");
-            itemDiv.classList.add("cart-item");
-            itemDiv.textContent = `${item.name} - $${item.price}`;
-            cartContents.appendChild(itemDiv);
-            totalPrice += item.price;
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            
+            cartItem.innerHTML = `
+                <button class="remove-item-btn" onclick="removeFromCart(${item.id})">&times;</button>
+                <img src="images/w${item.id}.jpg" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h5>${item.name}</h5>
+                    <p>Price: $${item.price}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                </div>
+                <div class="cart-item-total">
+                    $${(item.price * item.quantity).toFixed(2)}
+                </div>
+            `;
+            
+            cartItemsContainer.appendChild(cartItem);
+            totalPrice += item.price * item.quantity;
         });
 
-        document.getElementById("total-price").textContent = `Total: $${totalPrice}`;
+        const totalDiv = document.createElement("div");
+        totalDiv.classList.add("cart-item-total");
+        totalDiv.textContent = `Total: $${totalPrice.toFixed(2)}`;
+        cartItemsContainer.appendChild(totalDiv);
     }
 
-    // Añadir al carrito al hacer clic en cualquier botón de agregar
+    if (document.getElementById("cart-items-container")) {
+        displayCartItems();
+    }
+
     const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
     addToCartButtons.forEach(button => {
         button.addEventListener("click", function () {
             const product = {
-                id: button.getAttribute("data-id"),
+                id: parseInt(button.getAttribute("data-id")),
                 name: button.getAttribute("data-name"),
-                price: parseFloat(button.getAttribute("data-price"))
+                price: parseFloat(button.getAttribute("data-price")),
+                quantity: 1
             };
             addToCart(product);
         });
     });
+
+    window.removeFromCart = removeFromCart;
 });
