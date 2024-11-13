@@ -1,17 +1,130 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="css3/style.css">
-</head>
-<body>
-    <h1>Shopping Cart</h1>
-    <div id="cart-contents"></div>
-    <div id="total-price"></div>
-    <button id="checkout-button">Pay with PayPal</button>
+<html lang="en">
 
-    <script src="js3/script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="csss/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <link href="csss/style.css" rel="stylesheet">
+  <link href="csss/responsive.css" rel="stylesheet">
+  <style>
+    /* Estilos para el carrito */
+    .cart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 50px;
+    }
+
+    .cart-item {
+      background-color: #f8f8f8;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 20px;
+    }
+
+    .cart-item-details h5 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .cart-item-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .cart-item-total {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .checkout-btn {
+      background-color: #0fd815;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .checkout-btn:hover {
+      background-color: #ac0303;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items-container">
+      <!-- Los productos del carrito se agregarán aquí -->
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script src="jss/jquery-3.4.1.min.js"></script>
+  <script src="jss/bootstrap.js"></script>
+  <script src="jss/custom.js"></script>
+  <script src="js3/script.js"></script>
+  <script>
+    // Función para agregar productos al carrito
+    let cart = [];
+
+    // Verifica si hay productos guardados en el carrito en localStorage
+    if (localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+      displayCartItems();
+    }
+
+    // Función para mostrar los productos en el carrito
+    function displayCartItems() {
+      const cartItemsContainer = document.getElementById("cart-items-container");
+      cartItemsContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar los productos
+
+      cart.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-details">
+            <h5>${item.name}</h5>
+            <p>Price: $${item.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+          </div>
+          <div class="cart-item-total">
+            $${(item.price * item.quantity).toFixed(2)}
+          </div>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+      });
+    }
+  </script>
 </body>
+
 </html>
