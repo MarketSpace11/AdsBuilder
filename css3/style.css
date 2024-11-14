@@ -114,3 +114,13 @@
 .back-button:hover {
     background-color: red;
 }
+
+.cart-container h1 {
+    color: #8d2ad5; /* Cambia a tu color deseado */
+    font-weight: bold;
+}
+
+.cart-container h2 {
+    color: #13a301; /* Cambia a tu color deseado */
+    font-style: italic;
+}
