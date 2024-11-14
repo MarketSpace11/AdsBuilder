@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Función para actualizar el contador de artículos en el carrito
     function updateCartCount() {
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         const itemCount = cartItems.length;
@@ -18,44 +17,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCartCount();
 
-    // Función para agregar un producto al carrito
     function addToCart(product) {
         let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        // Revisamos si el producto ya existe en el carrito
         const existingProductIndex = cartItems.findIndex(item => item.id === product.id);
 
         if (existingProductIndex !== -1) {
-            cartItems[existingProductIndex].quantity += 1; // Si ya existe, aumentamos la cantidad
+            cartItems[existingProductIndex].quantity += 1;
         } else {
-            cartItems.push(product); // Si no existe, lo agregamos al carrito
+            cartItems.push(product);
         }
 
         localStorage.setItem("cart", JSON.stringify(cartItems));
         updateCartCount();
     }
 
-    // Función para eliminar un producto del carrito
     function removeFromCart(productId) {
         let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        cartItems = cartItems.filter(item => item.id !== productId); // Eliminamos el producto con el ID correspondiente
+        cartItems = cartItems.filter(item => item.id !== productId);
         localStorage.setItem("cart", JSON.stringify(cartItems));
         displayCartItems();
         updateCartCount();
     }
 
-    // Función para mostrar los productos en el carrito
     function displayCartItems() {
         const cartItemsContainer = document.getElementById("cart-items-container");
-        cartItemsContainer.innerHTML = ''; // Limpiar contenido previo
+        cartItemsContainer.innerHTML = '';
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         let totalPrice = 0;
 
         cartItems.forEach(item => {
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
-
-            // Aseguramos que las imágenes se muestren correctamente
-            const productImage = item.id ? `images/${item.id}.png` : 'images/default.png';  // Aseguramos que la imagen exista
+            const productImage = item.id ? `images/${item.id}.png` : 'images/default.png';
 
             cartItem.innerHTML = `
                 <div class="cart-item-image">
@@ -86,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
         displayCartItems();
     }
 
-    // Evento para agregar productos al carrito
     const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
     addToCartButtons.forEach(button => {
         button.addEventListener("click", function () {
@@ -100,6 +92,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Exponer la función removeFromCart a nivel global para que funcione al hacer clic
     window.removeFromCart = removeFromCart;
+
+    const checkoutButton = document.getElementById("pay-with-paypal-btn");
+    checkoutButton.addEventListener("click", function () {
+        document.getElementById("paypal-button-container").style.display = "block";
+    });
+
+    if (window.paypal) {
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+                const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+                
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalAmount.toFixed(2)
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    localStorage.removeItem("cart"); // Limpiar el carrito después del pago
+                    displayCartItems(); // Actualizar el carrito
+                    updateCartCount(); // Actualizar el contador del carrito
+                });
+            }
+        }).render('#paypal-button-container');
+    }
 });
