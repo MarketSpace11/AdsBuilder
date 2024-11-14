@@ -62,7 +62,7 @@
 
 .cart-item-details p {
     margin: 5px 0;
-    color: #555;
+    color: #0b01a7;
 }
 
 .cart-item-total {
@@ -82,7 +82,7 @@
 }
 
 .checkout-btn {
-    background-color: #0fd815;
+    background-color: #5648cb;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -93,5 +93,5 @@
 }
 
 .checkout-btn:hover {
-    background-color: #ac0303;
+    background-color: #b546e2;
 }
