@@ -39,6 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartCount();
     }
 
+    function adjustQuantity(productId, adjustment) {
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        const productIndex = cartItems.findIndex(item => item.id === productId);
+
+        if (productIndex !== -1) {
+            cartItems[productIndex].quantity += adjustment;
+            if (cartItems[productIndex].quantity < 1) {
+                cartItems[productIndex].quantity = 1;  // Prevent negative or zero quantities
+            }
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            displayCartItems();
+        }
+    }
+
     function displayCartItems() {
         const cartItemsContainer = document.getElementById("cart-items-container");
         cartItemsContainer.innerHTML = '';
@@ -58,7 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="cart-item-details">
                     <h5>${item.name}</h5>
                     <p>Price: $${item.price}</p>
-                    <p>Quantity: ${item.quantity}</p>
+                    <div class="quantity-control">
+                        <p>Quantity: ${item.quantity}</p>
+                        <div class="quantity-arrows">
+                            <button onclick="adjustQuantity('${item.id}', 1)">&#9650;</button>
+                            <button onclick="adjustQuantity('${item.id}', -1)">&#9660;</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="cart-item-total">
                     $${(item.price * item.quantity).toFixed(2)}
@@ -93,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.removeFromCart = removeFromCart;
+    window.adjustQuantity = adjustQuantity;
 
     const checkoutButton = document.getElementById("pay-with-paypal-btn");
     checkoutButton.addEventListener("click", function () {
@@ -116,9 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
                     alert('Transaction completed by ' + details.payer.name.given_name);
-                    localStorage.removeItem("cart"); // Limpiar el carrito después del pago
-                    displayCartItems(); // Actualizar el carrito
-                    updateCartCount(); // Actualizar el contador del carrito
+                    localStorage.removeItem("cart");
+                    displayCartItems();
+                    updateCartCount();
                 });
             }
         }).render('#paypal-button-container');
