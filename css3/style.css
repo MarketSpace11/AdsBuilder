@@ -124,3 +124,19 @@
     color: #13a301; /* Cambia a tu color deseado */
     font-style: italic;
 }
+
+.quantity-arrows button {
+    background-color: #87CEEB; /* Azul cielo claro */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 2px;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-arrows button:hover {
+    background-color: #D8BFD8; /* Morado claro en hover */
+}
