@@ -1,0 +1,18 @@
+/* styles.css */
+
+/* Estilos básicos del menú */
+.header_section { /* Cambié .navbar a .header_section */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white; /* Cambia esto según tu diseño */
+    transition: top 0.3s ease-in-out; /* Animación suave */
+    padding: 10px 20px;  /* Ajusta según tus necesidades */
+}
+
+/* Clase para ocultar el menú al hacer scroll hacia abajo */
+.hidden {
+    top: -100px; /* Oculta el menú moviéndolo fuera de la vista */
+}
