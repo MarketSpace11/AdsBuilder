@@ -22,7 +22,7 @@
 
         /* Estilo para los botones de categoría */
         .category-button {
-            background-color: purple; /* Color azul para los botones */
+            background-color: purple; /* Color púrpura para los botones */
             color: white; /* Color del texto en blanco */
             border: none; /* Sin borde */
             padding: 20px 30px; /* Espaciado */
@@ -39,10 +39,9 @@
 </head>
 <body>
     <!-- Pantalla Principal -->
-    <div id="main-screen" class="screen active">
+    <section id="main-screen" class="screen active animate-on-scroll">
         <div class="background" style="background-image: url('imagenes/principal.png');"></div>
         <div class="content">
-        <section class="animate-on-scroll">    
             <h1 id="welcome-text">AdsBuilder Website Creation and Business Promotion</h1>
             <div class="categories">               
                 <button data-target="#games-screen" class="category-button">Your Android Website</button>                                             
@@ -50,15 +49,16 @@
                 <button id="external-link-button" class="category-button">AdsBuilder App</button>
             </div>
         </div>
-    </div>
+    </section>
+
     <a href="services.html">
-    <button class="back-button">Return</button>
+        <button class="back-button">Return</button>
     </a>    
+
     <!-- Pantalla de Categoría de Android -->
-    <div id="games-screen" class="screen">
+    <section id="games-screen" class="screen animate-on-scroll">
         <div class="background" style="background-image: url('imagenes/android.png');"></div>
-        <div class="content">
-        <section class="animate-on-scroll">    
+        <div class="content">    
             <h2>Your Android Website</h2>
             <div class="grid-container games-grid">
                 <!-- 4 cuadros de miniaturas con enlaces -->
@@ -81,7 +81,7 @@
             </div>
             <button class="back-button" data-target="#main-screen">Return</button>
         </div>
-    </div>
+    </section>
 
     <script src="scripts.js"></script>
     <script src="bot-widget.js" defer></script>
