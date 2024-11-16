@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hacer el widget arrastrable con restricciones
     let isDragging = false;
     let offsetX, offsetY;
+    let touchTimeout;
 
     const moveWidget = (x, y) => {
         const windowWidth = window.innerWidth;
@@ -108,15 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
         offsetX = touch.clientX - chatbotWidget.offsetLeft;
         offsetY = touch.clientY - chatbotWidget.offsetTop;
 
-        // Evitar que se mueva la pantalla mientras arrastramos el widget
+        // Prevenir el comportamiento por defecto del toque, evitando el scrolling
         e.preventDefault();
 
-        // Verificar si el toque es para abrir el chatbot (no es un arrastre)
-        setTimeout(() => {
+        // Si el toque es corto (no se mueve), abrir el chatbot
+        clearTimeout(touchTimeout);
+        touchTimeout = setTimeout(() => {
             if (!isDragging) {
                 chatboxContainer.style.display = "flex";
             }
-        }, 0);
+        }, 200); // Tiempo de espera para decidir si es un toque o un arrastre
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -130,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const touch = e.touches[0];
             moveWidget(touch.clientX, touch.clientY);
         }
-
         // Evitar que se mueva la pantalla mientras arrastramos el widget
         e.preventDefault();
     });
