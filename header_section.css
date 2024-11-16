@@ -1,7 +1,7 @@
 /* styles.css */
 
 /* Estilos básicos del menú */
-.header_section { /* Cambié .navbar a .header_section */
+.header_section {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,4 +15,14 @@
 /* Clase para ocultar el menú al hacer scroll hacia abajo */
 .hidden {
     top: -100px; /* Oculta el menú moviéndolo fuera de la vista */
+}
+
+/* Asegurar que el contenido del body no se solape con el menú */
+body {
+    padding-top: 80px; /* Ajusta según el alto del header */
+}
+
+/* Opción alternativa usando margin-top */
+body {
+    margin-top: 80px; /* Si prefieres usar margin en lugar de padding */
 }
