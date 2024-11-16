@@ -19,7 +19,7 @@
 
 /* Asegurar que el contenido del body no se solape con el menú */
 body {
-    padding-top: 80px; /* Ajusta según el alto del header */
+    padding-top: 150px; /* Ajusta según el alto del header */
 }
 
 /* Opción alternativa usando margin-top */
