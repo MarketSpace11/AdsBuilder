@@ -107,6 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const touch = e.touches[0];
         offsetX = touch.clientX - chatbotWidget.offsetLeft;
         offsetY = touch.clientY - chatbotWidget.offsetTop;
+
+        // Evitar que se mueva la pantalla mientras arrastramos el widget
+        e.preventDefault();
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -120,6 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const touch = e.touches[0];
             moveWidget(touch.clientX, touch.clientY);
         }
+
+        // Evitar que se mueva la pantalla mientras arrastramos el widget
+        e.preventDefault();
     });
 
     document.addEventListener("mouseup", () => {
