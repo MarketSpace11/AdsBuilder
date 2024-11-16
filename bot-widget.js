@@ -110,6 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Evitar que se mueva la pantalla mientras arrastramos el widget
         e.preventDefault();
+
+        // Verificar si el toque es para abrir el chatbot (no es un arrastre)
+        setTimeout(() => {
+            if (!isDragging) {
+                chatboxContainer.style.display = "flex";
+            }
+        }, 0);
     });
 
     document.addEventListener("mousemove", (e) => {
