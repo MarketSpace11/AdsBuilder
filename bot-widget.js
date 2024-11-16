@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         es: [
             { q: "¿Qué servicios ofrecen?", a: "🌟 Ofrecemos diseño web, desarrollo de apps, SEO y promoción digital para negocios que quieren brillar. ¡Tu página web será hermosa y profesional! 😊" },
             { q: "¿Cuánto cuesta crear una página web?", a: "💸 Por solo $500, diseñamos una página perfecta para ti. ¡Paquetes con apps disponibles! 📱" },
-            { q: "¿Qué métodos de pago aceptan?", a: "✔️ Aceptamos PayPal para transacciones seguras. ¡Fácil y confiable! 🛡️" },
+            { q: "¿Qué métodos de pago aceptan?", a: "✔️ Aceptamos PayPal, Tarjeta de Credito y Debito para transacciones seguras. ¡Fácil y confiable! 🛡️" },
             { q: "¿Qué incluye la promoción digital?", a: "📢 Incluye creación de páginas en redes, diseño de banners y logos únicos. ¡Todo para destacar tu negocio! 🚀" },
             { q: "¿Cuánto tiempo tardan?", a: "⏱️ En 7-10 días tendrás tu página lista. ¡Rápido y espectacular! 🕒" },
             { q: "¿Ofrecen soporte?", a: "📞 Claro que sí. Paquetes de actualizaciones disponibles para que tu web siempre esté al día. 🌐" },
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         en: [
             { q: "What services do you offer?", a: "🌟 We offer web design, app development, SEO, and digital promotion to make your business shine. Your website will be stunning and professional! 😊" },
             { q: "How much does it cost to create a website?", a: "💸 For just $500, we design a perfect website for you. App packages are available! 📱" },
-            { q: "What payment methods do you accept?", a: "✔️ We accept PayPal for secure transactions. Easy and reliable! 🛡️" },
+            { q: "What payment methods do you accept?", a: "✔️ We accept PayPal, Credit and Debit card for secure transactions. Easy and reliable! 🛡️" },
             { q: "What does digital promotion include?", a: "📢 It includes creating social media pages, banners, and unique logos. Everything you need to make your business stand out! 🚀" },
             { q: "How long does it take?", a: "⏱️ In 7-10 days, your website will be ready. Quick and spectacular! 🕒" },
             { q: "Do you offer support?", a: "📞 Absolutely! Update packages are available to keep your site always up-to-date. 🌐" },
