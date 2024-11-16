@@ -22,7 +22,7 @@
 
         /* Estilo para los botones de categoría */
         .category-button {
-            background-color: purple; /* Color azul para los botones */
+            background-color: purple; /* Color púrpura para los botones */
             color: white; /* Color del texto en blanco */
             border: none; /* Sin borde */
             padding: 20px 30px; /* Espaciado */
@@ -39,7 +39,7 @@
 </head>
 <body>
     <!-- Pantalla Principal -->
-    <div id="main-screen" class="screen active">
+    <section id="main-screen" class="screen active animate-on-scroll">
         <div class="background" style="background-image: url('imagenes/principal.png');"></div>
         <div class="content">
             <h1 id="welcome-text">AdsBuilder Website Creation and Business Promotion</h1>
@@ -49,33 +49,35 @@
                 <button id="external-link-button" class="category-button">AdsBuilder App</button>
             </div>
         </div>
-    </div>
+    </section>
+
     <a href="services.html">
-    <button class="back-button">Return</button>
+        <button class="back-button">Return</button>
     </a>
+
     <!-- Pantalla de Categoría de Website Creation Services -->
-    <div id="apps-screen" class="screen">
+    <section id="apps-screen" class="screen animate-on-scroll">
         <div class="background" style="background-image: url('imagenes/website.png');"></div>
         <div class="content">
             <h2>Website Creation Services</h2>
             <div class="grid-container">
                 <!-- 3 cuadros de miniaturas con enlaces -->
-                <a class="item" target="_blank">
+                <a class="item animate-on-scroll" target="_blank">
                     <img src="imagenes/website1.png" alt="App 1">
                     <p>AdsBuilder</p>
                 </a>
-                <a class="item" target="_blank">
+                <a class="item animate-on-scroll" target="_blank">
                     <img src="imagenes/website2.png" alt="App 2">
                     <p>Website Creation Service</p>
                 </a>
-                <a class="item" target="_blank">
+                <a class="item animate-on-scroll" target="_blank">
                     <img src="imagenes/website3.png" alt="App 3">
                     <p>Website Design</p>
                 </a>
             </div>
             <button class="back-button" data-target="#main-screen">Return</button>
         </div>
-    </div>
+    </section>
 
     <script src="scripts.js"></script>
     <script src="bot-widget.js" defer></script>
