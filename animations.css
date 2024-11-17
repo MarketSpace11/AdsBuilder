@@ -1,0 +1,16 @@
+/* animations.css */
+
+/* Estilo base para los elementos que se animarán */
+.animate-on-scroll {
+    opacity: 0; /* Los elementos empiezan invisibles */
+    transform: translateY(50px); /* Los elementos están ligeramente desplazados hacia abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
+}
+
+/* Estilo para los elementos visibles después de hacer scroll */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0); /* El elemento se mueve a su posición original */
+}
+
+/* Agregar más animaciones si es necesario */
