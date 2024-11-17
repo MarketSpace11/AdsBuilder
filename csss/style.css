@@ -876,16 +876,3 @@ a:focus {
           transform: rotate(-45deg) translate(8px, -8px);
 }
 /*# sourceMappingURL=style.css.map */
-
-<style>
-  /* Asegúrate de que los íconos no se escalen inesperadamente */
-  .link-box .img-box img {
-      width: 10px; /* Ajusta el tamaño deseado */
-      height: auto; /* Mantén las proporciones */
-  }
-  
-  /* Evita que las animaciones de escala lo afecten */
-  .link-box .img-box {
-      transform: none !important;
-  }
-</style>
