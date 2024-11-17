@@ -880,7 +880,7 @@ a:focus {
 <style>
   /* Asegúrate de que los íconos no se escalen inesperadamente */
   .link-box .img-box img {
-      width: 50px; /* Ajusta el tamaño deseado */
+      width: 10px; /* Ajusta el tamaño deseado */
       height: auto; /* Mantén las proporciones */
   }
   
