@@ -663,7 +663,8 @@ input.form-control::placeholder {
     color: #040404;
 }
 
-.ad-banner {
+.NativeBanner_1 {
     margin: 20px auto;
     text-align: center;
+    max-width: 100%;
 }
