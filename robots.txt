@@ -1,0 +1,10 @@
+# Bloqueo de todos los bots maliciosos
+User-agent: *
+Disallow:
+
+# Específicamente para Googlebot: permitir todo
+User-agent: Googlebot
+Disallow:
+
+# Indicar la ubicación de tu sitemap (opcional pero recomendado)
+Sitemap: https://adsbuilds.com/sitemap.xml
